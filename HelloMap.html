@@ -1,0 +1,63 @@
+<!DOCTYPE html>  
+<html>  
+<head>  
+<meta name="viewport" content="initial-scale=1.0, user-scalable=no" />  
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />  
+<title>Hello, World</title>
+<script src="jquery-1.11.1.js"></script>  
+<style type="text/css">  
+html{height:100%}  
+body{height:100%;margin:0px;padding:0px}
+#wrapper{height:100%;margin:30px;}  
+#controls{height:20%;background-color:#FFFFCC;border:solid 1px gray;text-align:center;}
+#container{height:80%;border:solid 1px gray;}  
+#menuBtn{list-style:none; margin: 30px auto;padding: 0px;width: auto;height:100%;display:inline;}
+li{margin-left:10px;display:inline;}
+</style>  
+<script type="text/javascript" src="http://api.map.baidu.com/api?v=1.5&ak=YyHT4xLQ5uSZbGGLWWPcoAim">
+//1.in order to use BaiduMap, like GoogleMap, you need an api key, which is called ak.
+//you can apply by this site  http://developer.baidu.com/map/index.php?title=jspopular, the language is chinese. will try to make a note about how to apply it.
+//为了使用百度地图，首先你要申请一个key，和谷歌地图差不多，链接再此 http://developer.baidu.com/map/index.php?title=jspopular，其实上面都有很多教程，如果会中文的不用看我写的这个了，只是整理下我学的东西，顺便写一下英语，
+</script>
+</head>  
+   
+<body>
+<div id="wrapper"> 
+<div id="controls">
+<ul id="menuBtn">
+	<li><input id="btnPanTo" type="button" value="panTo"/></li>
+	<script type="text/javascript">
+	$(document).ready(
+	function(){
+		$("#btnPanTo").click(
+		function(){
+		 map.panTo(new BMap.Point(116.404, 39.918));}
+		);
+	});
+	
+	// panTo function will alow you to pan the map to a specific location
+	</script>
+	
+	<li><input id="" type="button" value="panTo"/></li>
+	<li><input id="" type="button" value="map"/></li>
+	<li><input id="" type="button" value="map"/></li>
+	<li><input id="" type="button" value="map"/></li>
+</ul>
+</div>
+<div id="container">
+</div>
+<script type="text/javascript">
+var map = new BMap.Map("container");          // 创建地图实例  create a map instance
+var point = new BMap.Point(116.404, 39.915);  // 创建点坐标   create a point with coordinates,btw, the center is the forbidden city in Beijing
+map.centerAndZoom(point, 15); 				// 初始化地图，设置中心点坐标和地图级别 when initialling the map, set the center point and the zoom level
+//next steps are adding some controls to the map with original settings(location on the screen, makers,style) 添加控件
+//you can try one by one to tell their functions.
+map.addControl(new BMap.NavigationControl());               //including zoom in,zoom out, pan     
+map.addControl(new BMap.ScaleControl());    				//scale: 1:1500 
+map.addControl(new BMap.OverviewMapControl());    			//in the left-bottom corner
+map.addControl(new BMap.MapTypeControl());    				// right-top corner, the map type:satelite，3d ..
+
+</script> 
+ </div>
+</body>  
+</html>
